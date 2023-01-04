@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 if [ "${RUNNER_DEBUG}" = "1" ] ; then
   set -x
 fi
@@ -7,7 +9,7 @@ fi
 # install actionlint
 export ACTIONLINT_VERSION=1.6.22
 export OSTYPE=linux-gnu
-wget -O - -q https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash | sh -s -- ${ACTIONLINT_VERSION} /usr/local/bin/
+wget -O - -q https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash | bash -s -- ${ACTIONLINT_VERSION} /usr/local/bin/
 
 if [ -n "${GITHUB_WORKSPACE}" ] ; then
   cd "${GITHUB_WORKSPACE}" || exit
