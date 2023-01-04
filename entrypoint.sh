@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ "${RUNNER_DEBUG}" = "1" ] ; then
   set -x
