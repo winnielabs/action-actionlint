@@ -4,6 +4,11 @@ if [ "${RUNNER_DEBUG}" = "1" ] ; then
   set -x
 fi
 
+# install actionlint
+export ACTIONLINT_VERSION=1.6.22
+export OSTYPE=linux-gnu
+wget -O - -q https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash | sh -s -- ${ACTIONLINT_VERSION} /usr/local/bin/
+
 if [ -n "${GITHUB_WORKSPACE}" ] ; then
   cd "${GITHUB_WORKSPACE}" || exit
   git config --global --add safe.directory "${GITHUB_WORKSPACE}" || exit 1
